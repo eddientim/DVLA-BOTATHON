@@ -1,9 +1,9 @@
-exports.handler =  async function(event, context, callback) {
+exports.handler =  async function(destA, destB, reg) {
 console.log(event)
   // Getting variables from event
-  let destA = event.currentIntent.slots.destA
-  let destB = event.currentIntent.slots.destB
-  let reg = event.currentIntent.slots.carReg
+  // let destA = event.currentIntent.slots.destA
+  // let destB = event.currentIntent.slots.destB
+  // let reg = event.currentIntent.slots.carReg
 
   // Getting CO2 information
   let co2Emissions = await getVehCo2Emissions(reg)
@@ -27,7 +27,10 @@ console.log(event)
     }
   }
 
-  callback(null, responseJson);
+  return new Promise(function(resolve, reject){
+    resolve(responseString)
+  })
+  //callback(null, responseJson);
   //return `This journey is ${distanceKm}km and would need to be offset by ${treeOffset} of trees`
 }
 
