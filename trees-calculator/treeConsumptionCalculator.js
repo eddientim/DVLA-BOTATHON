@@ -1,5 +1,4 @@
-exports.handler =  async function(destA, destB, reg) {
-console.log(event)
+exports.handler =  async function(destA, destB, reg, callback) {
   // Getting variables from event
   // let destA = event.currentIntent.slots.destA
   // let destB = event.currentIntent.slots.destB
@@ -16,22 +15,9 @@ console.log(event)
 
   let responseString = `This journey is ${distanceKm}km and would need to be offset by ${treeOffset} trees`
 
-  var responseJson =  {
-    "dialogAction": {
-    "type": "Close",
-    "fulfillmentState": "Fulfilled", // <-- Required
-    "message": {
-      "contentType": "PlainText",
-      "content": responseString
-    }
-    }
-  }
+  console.log("Returning ", responseString)
 
-  return new Promise(function(resolve, reject){
-    resolve(responseString)
-  })
-  //callback(null, responseJson);
-  //return `This journey is ${distanceKm}km and would need to be offset by ${treeOffset} of trees`
+  callback(null, responseString)
 }
 
 // TODO: Actually get vehicle info

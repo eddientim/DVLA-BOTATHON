@@ -22,20 +22,32 @@ const HelloWorldIntentHandler = {
         return handlerInput.requestEnvelope.request.type === 'IntentRequest'
             && handlerInput.requestEnvelope.request.intent.name === 'OrderFlowers';
     },
-    async handle(handlerInput) {
+    handle(handlerInput) {
       let destA = handlerInput.requestEnvelope.request.intent.slots.destA.value
       let destB = handlerInput.requestEnvelope.request.intent.slots.destB.value
-      let carReg = handlerInput.requestEnvelope.request.intent.slots.destA.carReg
+      let carReg = handlerInput.requestEnvelope.request.intent.slots.carReg.value
 
-      console.log("Handler inpiut!!! ", destA, destB, carReg)
-      let apples = await treeConsumptionCalculator.handler(destA, destB, carReg)
-      console.log("GETTING THE STUFF", apples)
+      console.log("Handler input!!! ", destA, destB, carReg)
+      // const speechText = 'Hello Kamar!';
+      // return handlerInput.responseBuilder
+      //             .speak(speechText)
+      //             .withSimpleCard('Hello World', speechText)
+      //             .getResponse();
+      // const speechText = 'Hello Kamar!';
+      // return handlerInput.responseBuilder
+      //             .speak(speechText)
+      //             .withSimpleCard('Hello World', speechText)
+      //             .getResponse();
 
-        const speechText = 'Hello Kamar!';
-        return handlerInput.responseBuilder
-                    .speak(speechText)
-                    .withSimpleCard('Hello World', speechText)
-                    .getResponse();
+      let returnedData = treeConsumptionCalculator.handler(destA, destB, carReg, function (err, data) {
+        console.log("GETTING THE STUFF", data)
+        return data.toString()
+      })
+
+      return handlerInput.responseBuilder
+                  .speak(returnedData)
+                  .withSimpleCard('Hello World', returnedData)
+                  .getResponse();
     }
 };
 
