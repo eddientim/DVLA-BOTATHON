@@ -1,5 +1,6 @@
 'use strict';
 const Alexa = require('ask-sdk-core');
+var treeConsumptionCalculator = require('./treeConsumptionCalculator.js');
 // use 'ask-sdk' if standard SDK module is installed
 
 const LaunchRequestHandler = {
@@ -19,9 +20,17 @@ return handlerInput.responseBuilder
 const HelloWorldIntentHandler = {
     canHandle(handlerInput) {
         return handlerInput.requestEnvelope.request.type === 'IntentRequest'
-            && handlerInput.requestEnvelope.request.intent.name === 'HelloWorldIntent';
+            && handlerInput.requestEnvelope.request.intent.name === 'OrderFlowers';
     },
-    handle(handlerInput) {
+    async handle(handlerInput) {
+      let destA = handlerInput.requestEnvelope.request.intent.slots.destA.value
+      let destB = handlerInput.requestEnvelope.request.intent.slots.destB.value
+      let carReg = handlerInput.requestEnvelope.request.intent.slots.destA.carReg
+
+      console.log("Handler inpiut!!! ", destA, destB, carReg)
+      let apples = await treeConsumptionCalculator.handler(destA, destB, carReg)
+      console.log("GETTING THE STUFF", apples)
+
         const speechText = 'Hello Kamar!';
         return handlerInput.responseBuilder
                     .speak(speechText)
