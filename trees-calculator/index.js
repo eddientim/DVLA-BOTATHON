@@ -1,47 +1,92 @@
-exports.handler =  async function(event, context) {
+'use strict';
+const Alexa = require('ask-sdk-core');
+// use 'ask-sdk' if standard SDK module is installed
 
-  // Getting variables from event
-  let destA = event.destA
-  let destB = event.destB
-  let reg = event.reg
+const LaunchRequestHandler = {
+    canHandle(handlerInput) {
+        return handlerInput.requestEnvelope.request.type === 'LaunchRequest';
+    },
+    handle(handlerInput) {
+        const speechText = 'Welcome to the Alexa Skills Kit, you can say hello!';
+return handlerInput.responseBuilder
+            .speak(speechText)
+            .reprompt(speechText)
+            .withSimpleCard('Hello World', speechText)
+            .getResponse();
+    }
+};
 
-  // Getting CO2 information
-  let co2Emissions = await getVehCo2Emissions(reg)
+const HelloWorldIntentHandler = {
+    canHandle(handlerInput) {
+        return handlerInput.requestEnvelope.request.type === 'IntentRequest'
+            && handlerInput.requestEnvelope.request.intent.name === 'HelloWorldIntent';
+    },
+    handle(handlerInput) {
+        const speechText = 'Hello World!';
+return handlerInput.responseBuilder
+            .speak(speechText)
+            .withSimpleCard('Hello World', speechText)
+            .getResponse();
+    }
+};
 
-  // Getting distance information
-  let distanceKm = await getDistanceInKm(destA, destB)
+const HelpIntentHandler = {
+    canHandle(handlerInput) {
+        return handlerInput.requestEnvelope.request.type === 'IntentRequest'
+            && handlerInput.requestEnvelope.request.intent.name === 'AMAZON.HelpIntent';
+    },
+    handle(handlerInput) {
+        const speechText = 'You can say hello to me!';
+return handlerInput.responseBuilder
+            .speak(speechText)
+            .reprompt(speechText)
+            .withSimpleCard('Hello World', speechText)
+            .getResponse();
+    }
+};
 
-  // Calculating tree offset
-  let treeOffset = await calculatTreesdOffset(co2Emissions, distanceKm)
+const CancelAndStopIntentHandler = {
+    canHandle(handlerInput) {
+        return handlerInput.requestEnvelope.request.type === 'IntentRequest'
+            && (handlerInput.requestEnvelope.request.intent.name === 'AMAZON.CancelIntent'
+                || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.StopIntent');
+    },
+    handle(handlerInput) {
+        const speechText = 'Goodbye!';
+return handlerInput.responseBuilder
+            .speak(speechText)
+            .withSimpleCard('Hello World', speechText)
+            .getResponse();
+    }
+};
 
-  return `This journey is ${distanceKm}km and would need to be offset by ${treeOffset} of trees`
-}
+const SessionEndedRequestHandler = {
+    canHandle(handlerInput) {
+        return handlerInput.requestEnvelope.request.type === 'SessionEndedRequest';
+    },
+    handle(handlerInput) {
+        //any cleanup logic goes here
+        return handlerInput.responseBuilder.getResponse();
+    }
+};
 
-// TODO: Actually get vehicle info
-// Function to go get vehicle info using reg
-async function getVehCo2Emissions(reg) {
-  console.log("STUB: Collecting co2 emissions on vehicle reg ", reg)
+const ErrorHandler = {
+    canHandle() {
+      return true;
+    },
+    handle(handlerInput, error) {
+      console.log(`Error handled: ${error.message}`);
+return handlerInput.responseBuilder
+        .speak('Sorry, I can\'t understand the command. Please say again.')
+        .reprompt('Sorry, I can\'t understand the command. Please say again.')
+        .getResponse();
+    },
+};
 
-  // Return new promise
-  return new Promise(function(resolve, reject) {
-    resolve(118)
-    })
-}
-
-// TODO: Actually get distance info (google maps API)
-// Function to go get vehicle info using reg
-async function getDistanceInKm(destA, destB) {
-  console.log("STUB: Collecting distance between ", destA, " and ", destB)
-
-  // Return new promise
-  return new Promise(function(resolve, reject) {
-    resolve(301)
-    })
-}
-
-async function calculatTreesdOffset(co2Emissions, distance) {
-  let co2InGrams = co2Emissions * distance
-  let co2InTonnes = co2InGrams / 1000000
-
-  return co2InTonnes * 5
-}
+exports.handler = Alexa.SkillBuilders.custom()
+     .addRequestHandlers(LaunchRequestHandler,
+                         HelloWorldIntentHandler,
+                         HelpIntentHandler,
+                         CancelAndStopIntentHandler,
+                         SessionEndedRequestHandler)
+     .lambda();
