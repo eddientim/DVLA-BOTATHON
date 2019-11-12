@@ -22,11 +22,11 @@ const HelloWorldIntentHandler = {
             && handlerInput.requestEnvelope.request.intent.name === 'HelloWorldIntent';
     },
     handle(handlerInput) {
-        const speechText = 'Hello World!';
-return handlerInput.responseBuilder
-            .speak(speechText)
-            .withSimpleCard('Hello World', speechText)
-            .getResponse();
+        const speechText = 'Hello Kamar!';
+        return handlerInput.responseBuilder
+                    .speak(speechText)
+                    .withSimpleCard('Hello World', speechText)
+                    .getResponse();
     }
 };
 
