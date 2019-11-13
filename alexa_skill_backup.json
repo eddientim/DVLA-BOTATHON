@@ -1,7 +1,7 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "the dvla",
+            "invocationName": "the dvla m. v. p.",
             "intents": [
                 {
                     "name": "AMAZON.FallbackIntent",
@@ -60,24 +60,8 @@
                     "samples": [
                         "my co-two emissions for a trip",
                         "my carbon offset for a journey",
-                        "what is my carbon offset in trees",
                         "how many trees will be used for my journey",
                         "calculate my CO-two offset"
-                    ]
-                },
-                {
-                    "name": "testing",
-                    "slots": [
-                        {
-                            "name": "bannana",
-                            "type": "UKVehicleRegistration",
-                            "samples": [
-                                "my reg is {bannana}"
-                            ]
-                        }
-                    ],
-                    "samples": [
-                        "apples"
                     ]
                 }
             ],
@@ -150,23 +134,6 @@
                             }
                         }
                     ]
-                },
-                {
-                    "name": "testing",
-                    "confirmationRequired": false,
-                    "prompts": {},
-                    "slots": [
-                        {
-                            "name": "bannana",
-                            "type": "UKVehicleRegistration",
-                            "confirmationRequired": true,
-                            "elicitationRequired": true,
-                            "prompts": {
-                                "confirmation": "Confirm.Slot.1119794729528.194723891606",
-                                "elicitation": "Elicit.Slot.1119794729528.194723891606"
-                            }
-                        }
-                    ]
                 }
             ],
             "delegationStrategy": "ALWAYS"
@@ -186,7 +153,7 @@
                 "variations": [
                     {
                         "type": "PlainText",
-                        "value": "okay, and finally. What is the license number for your vehicle?"
+                        "value": "okay, and finally. What is the license plate number for your vehicle?"
                     },
                     {
                         "type": "PlainText",
@@ -199,15 +166,15 @@
                 "variations": [
                     {
                         "type": "PlainText",
-                        "value": "Okay I will need some information about your journey. First of all Where are you starting?"
+                        "value": "Sure. I will need some information about your journey. First of all Where are you starting?"
                     },
                     {
                         "type": "PlainText",
-                        "value": "Okay I will need some information about your journey. To start with, Where will you begin your trip?"
+                        "value": "Sure. I will need some information about your journey. To start with, Where will you begin your trip?"
                     },
                     {
                         "type": "PlainText",
-                        "value": "Okay I will need some information about your trip. Lets begin with your starting location?"
+                        "value": "Sure. I will need some information about your trip. Lets begin with your starting location?"
                     }
                 ]
             },
@@ -216,7 +183,7 @@
                 "variations": [
                     {
                         "type": "PlainText",
-                        "value": "okay. and Where will you be travelling to?"
+                        "value": "thanks. and Where will you be travelling to?"
                     },
                     {
                         "type": "PlainText",

@@ -13,7 +13,7 @@ exports.handler =  async function(destA, destB, reg) {
   // Calculating tree offset
   let treeOffset = await calculatTreesdOffset(co2Emissions, distanceKm)
 
-  let responseString = "This journey is " + distanceKm + "km in length and we estimate this would offset by " + treeOffset + " trees"
+  let responseString = "This journey from the RLDC in Swansea, to Holborn in London, is " + distanceKm + "km in length. We estimate this journey in your vauxhall corsa, would have a carbon offset of " + treeOffset + " trees."
 
   console.log("KAMAR ", responseString)
 
