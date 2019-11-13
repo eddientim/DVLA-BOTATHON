@@ -58,6 +58,7 @@
                         }
                     ],
                     "samples": [
+                        "my co-two emissions for a trip",
                         "my carbon offset for a journey",
                         "what is my carbon offset in trees",
                         "how many trees will be used for my journey",
@@ -118,10 +119,8 @@
                 {
                     "name": "OrderFlowers",
                     "delegationStrategy": "ALWAYS",
-                    "confirmationRequired": true,
-                    "prompts": {
-                        "confirmation": "Confirm.Intent-OrderFlowers"
-                    },
+                    "confirmationRequired": false,
+                    "prompts": {},
                     "slots": [
                         {
                             "name": "destA",
@@ -187,11 +186,11 @@
                 "variations": [
                     {
                         "type": "PlainText",
-                        "value": "What is the license number for your vehicle?"
+                        "value": "okay, and finally. What is the license number for your vehicle?"
                     },
                     {
                         "type": "PlainText",
-                        "value": "What is your vehicle registration?"
+                        "value": "okay, and finally. what is your vehicle registration?"
                     }
                 ]
             },
@@ -200,15 +199,15 @@
                 "variations": [
                     {
                         "type": "PlainText",
-                        "value": "Where are you starting?"
+                        "value": "Okay I will need some information about your journey. First of all Where are you starting?"
                     },
                     {
                         "type": "PlainText",
-                        "value": "Where will you begin your journey?"
+                        "value": "Okay I will need some information about your journey. To start with, Where will you begin your trip?"
                     },
                     {
                         "type": "PlainText",
-                        "value": "What is your starting location?"
+                        "value": "Okay I will need some information about your trip. Lets begin with your starting location?"
                     }
                 ]
             },
@@ -217,19 +216,15 @@
                 "variations": [
                     {
                         "type": "PlainText",
-                        "value": "Where will you be travelling to?"
+                        "value": "okay. and Where will you be travelling to?"
                     },
                     {
                         "type": "PlainText",
-                        "value": "where are you going?"
+                        "value": "thanks. and where are you going?"
                     },
                     {
                         "type": "PlainText",
-                        "value": "Where will you end your journey?"
-                    },
-                    {
-                        "type": "PlainText",
-                        "value": "What is you destination?"
+                        "value": "thank you. and Where will you end your journey?"
                     }
                 ]
             },
