@@ -1,7 +1,7 @@
 # DVLA-BOTATHON
 Hackerthon based on Bot/AI concepts. This ia an alexia skill to which collects postcode, vehicle reg and checks the CO2 emissions of the journey. 
 
-##Perquisites 
+##Prerequisites 
 - Node
 - AWS CLI
 
