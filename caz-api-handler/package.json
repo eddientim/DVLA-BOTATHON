@@ -1,5 +1,5 @@
 {
-  "name": "trees-calculator",
+  "name": "caz-api-handler",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,9 +7,5 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "ask-sdk": "^2.7.0",
-    "aws-sdk": "^2.570.0"
-  }
+  "license": "ISC"
 }

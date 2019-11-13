@@ -1,5 +1,5 @@
 {
-  "name": "trees-calculator",
+  "name": "google-distance-calculator",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "ask-sdk": "^2.7.0",
-    "aws-sdk": "^2.570.0"
+    "google-distance-matrix": "^1.1.1"
   }
 }

@@ -17,10 +17,10 @@ return handlerInput.responseBuilder
     }
 };
 
-const HelloWorldIntentHandler = {
+const CheckTreesIntentHandler = {
     canHandle(handlerInput) {
         return handlerInput.requestEnvelope.request.type === 'IntentRequest'
-            && handlerInput.requestEnvelope.request.intent.name === 'OrderFlowers';
+            && handlerInput.requestEnvelope.request.intent.name === 'CheckTrees';
     },
     async handle(handlerInput) {
       let destA = handlerInput.requestEnvelope.request.intent.slots.destA.value
@@ -75,7 +75,12 @@ const SessionEndedRequestHandler = {
     },
     handle(handlerInput) {
         //any cleanup logic goes here
-        return handlerInput.responseBuilder.getResponse();
+        const speechText = 'There has been an issue!';
+
+        return handlerInput.responseBuilder
+        .speak(speechText)
+              .withSimpleCard('Hello World', speechText)
+              .getResponse();
     }
 };
 
@@ -94,7 +99,7 @@ return handlerInput.responseBuilder
 
 exports.handler = Alexa.SkillBuilders.custom()
      .addRequestHandlers(LaunchRequestHandler,
-                         HelloWorldIntentHandler,
+                         CheckTreesIntentHandler,
                          HelpIntentHandler,
                          CancelAndStopIntentHandler,
                          SessionEndedRequestHandler)
