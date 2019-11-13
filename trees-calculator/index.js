@@ -17,25 +17,41 @@ return handlerInput.responseBuilder
     }
 };
 
+const HelloWorldIntentHandler = {
+    canHandle(handlerInput) {
+        return handlerInput.requestEnvelope.request.type === 'IntentRequest'
+            && handlerInput.requestEnvelope.request.intent.name === 'HelloWorldIntent';
+    },
+    async handle(handlerInput) {
+      // let destA = handlerInput.requestEnvelope.request.intent.slots.destA.value
+      // let destB = handlerInput.requestEnvelope.request.intent.slots.destB.value
+      // let carReg = handlerInput.requestEnvelope.request.intent.slots.carReg.value
+    let data = await treeConsumptionCalculator.handler("BD18 3AW", "SW4 7UY", "123ABC")
+   let speechText = "Thank you. So " + data
+  //  let speechText = "Hello kamar"
+return handlerInput.responseBuilder
+            .speak(speechText)
+            .withSimpleCard('Hello World', speechText)
+            .getResponse();
+    }
+};
+
 const CheckTreesIntentHandler = {
     canHandle(handlerInput) {
         return handlerInput.requestEnvelope.request.type === 'IntentRequest'
             && handlerInput.requestEnvelope.request.intent.name === 'CheckTrees';
     },
     async handle(handlerInput) {
-      let destA = handlerInput.requestEnvelope.request.intent.slots.destA.value
-      let destB = handlerInput.requestEnvelope.request.intent.slots.destB.value
-      let carReg = handlerInput.requestEnvelope.request.intent.slots.carReg.value
-
-
-      let data = await treeConsumptionCalculator.handler(destA, destB, carReg)
-
-      let alexaResponseString = "Thank you. So " + data
-
-      return handlerInput.responseBuilder
-                  .speak(alexaResponseString)
-                  .withSimpleCard(alexaResponseString)
-                  .getResponse();
+      // let destA = handlerInput.requestEnvelope.request.intent.slots.destA.value
+      // let destB = handlerInput.requestEnvelope.request.intent.slots.destB.value
+      // let carReg = handlerInput.requestEnvelope.request.intent.slots.carReg.value
+    //let data = await treeConsumptionCalculator.handler("BD18 3AW", "SW4 7UY", "123ABC")
+  //  let speechText = "Thank you. So " + data
+    let speechText = "Hello kamar"
+return handlerInput.responseBuilder
+            .speak(speechText)
+            .withSimpleCard('Hello World', speechText)
+            .getResponse();
     }
 };
 
@@ -94,8 +110,39 @@ return handlerInput.responseBuilder
 
 exports.handler = Alexa.SkillBuilders.custom()
      .addRequestHandlers(LaunchRequestHandler,
+                         HelloWorldIntentHandler,
                          CheckTreesIntentHandler,
                          HelpIntentHandler,
                          CancelAndStopIntentHandler,
                          SessionEndedRequestHandler)
      .lambda();
+
+
+
+
+
+
+
+     //
+     // const CheckTreesIntentHandler = {
+     //     canHandle(handlerInput) {
+     //         return handlerInput.requestEnvelope.request.type === 'IntentRequest'
+     //             && handlerInput.requestEnvelope.request.intent.name === 'CheckTrees';
+     //     },
+     //     async handle(handlerInput) {
+     //       let destA = handlerInput.requestEnvelope.request.intent.slots.destA.value
+     //       let destB = handlerInput.requestEnvelope.request.intent.slots.destB.value
+     //       let carReg = handlerInput.requestEnvelope.request.intent.slots.carReg.value
+     //
+     // console.log("HERE")
+     //
+     //       let data = await treeConsumptionCalculator.handler(destA, destB, carReg)
+     //
+     //       let alexaResponseString = "Thank you. So " + data
+     //
+     //       return handlerInput.responseBuilder
+     //                   .speak(alexaResponseString)
+     //                   .withSimpleCard(alexaResponseString)
+     //                   .getResponse();
+     //     }
+     // };

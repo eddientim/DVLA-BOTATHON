@@ -19,7 +19,7 @@ async function invokeLambda(start, end) {
     }
 
     var params = {
-     FunctionName: "babs-google-distance-lambda",
+     FunctionName: "googleStuff",
      Payload: JSON.stringify(payload)
    };
 

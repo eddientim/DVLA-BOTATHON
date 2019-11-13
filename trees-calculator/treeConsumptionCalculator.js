@@ -13,7 +13,7 @@ exports.handler =  async function(destA, destB, reg) {
   // Calculating tree offset
   let treeOffset = await calculatTreesdOffset(co2Emissions, distanceData.distance)
 
-  let responseString = "This journey from " + distanceData.start + " to " + distanceData.end + ", is " + distanceData.distance + " in length. We estimate this journey in your vauxhall corsa, would have a carbon offset equivalent to " + treeOffset + " trees."
+  let responseString = "This journey from " + distanceData.start + " to " + distanceData.end + ", is " + distanceData.distance + " in length. We estimate this journey in your mercedes G L A, would have a carbon offset equivalent to " + treeOffset + ", trees."
 
   return new Promise(function(resolve, reject) {
     resolve(responseString)
@@ -37,5 +37,6 @@ async function calculatTreesdOffset(co2Emissions, distance) {
   let co2InGrams = co2Emissions * distanceInt[0]
   let co2InTonnes = co2InGrams / 1000000
 
-  return co2InTonnes * 5
+let x = co2InTonnes * 5
+return Math.round(x * 100) / 100
 }

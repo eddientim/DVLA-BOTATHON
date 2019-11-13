@@ -1,7 +1,7 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "the potato",
+            "invocationName": "our bot",
             "intents": [
                 {
                     "name": "AMAZON.FallbackIntent",
@@ -24,7 +24,7 @@
                     "samples": []
                 },
                 {
-                    "name": "OrderFlowers",
+                    "name": "HelloWorldIntent",
                     "slots": [
                         {
                             "name": "destA",
@@ -101,7 +101,7 @@
         "dialog": {
             "intents": [
                 {
-                    "name": "OrderFlowers",
+                    "name": "HelloWorldIntent",
                     "delegationStrategy": "ALWAYS",
                     "confirmationRequired": false,
                     "prompts": {},
@@ -112,7 +112,7 @@
                             "confirmationRequired": false,
                             "elicitationRequired": true,
                             "prompts": {
-                                "elicitation": "Elicit.Intent-OrderFlowers.IntentSlot-destA"
+                                "elicitation": "Elicit.Intent-HelloWorldIntent.IntentSlot-destA"
                             }
                         },
                         {
@@ -121,7 +121,7 @@
                             "confirmationRequired": false,
                             "elicitationRequired": true,
                             "prompts": {
-                                "elicitation": "Elicit.Intent-OrderFlowers.IntentSlot-destB"
+                                "elicitation": "Elicit.Intent-HelloWorldIntent.IntentSlot-destB"
                             }
                         },
                         {
@@ -130,7 +130,7 @@
                             "confirmationRequired": false,
                             "elicitationRequired": true,
                             "prompts": {
-                                "elicitation": "Elicit.Intent-OrderFlowers.IntentSlot-carReg"
+                                "elicitation": "Elicit.Intent-HelloWorldIntent.IntentSlot-carReg"
                             }
                         }
                     ]
@@ -140,7 +140,7 @@
         },
         "prompts": [
             {
-                "id": "Confirm.Intent-OrderFlowers",
+                "id": "Confirm.Intent-HelloWorldIntent",
                 "variations": [
                     {
                         "type": "PlainText",
@@ -149,7 +149,7 @@
                 ]
             },
             {
-                "id": "Elicit.Intent-OrderFlowers.IntentSlot-carReg",
+                "id": "Elicit.Intent-HelloWorldIntent.IntentSlot-carReg",
                 "variations": [
                     {
                         "type": "PlainText",
@@ -162,7 +162,7 @@
                 ]
             },
             {
-                "id": "Elicit.Intent-OrderFlowers.IntentSlot-destA",
+                "id": "Elicit.Intent-HelloWorldIntent.IntentSlot-destA",
                 "variations": [
                     {
                         "type": "PlainText",
@@ -179,7 +179,7 @@
                 ]
             },
             {
-                "id": "Elicit.Intent-OrderFlowers.IntentSlot-destB",
+                "id": "Elicit.Intent-HelloWorldIntent.IntentSlot-destB",
                 "variations": [
                     {
                         "type": "PlainText",
