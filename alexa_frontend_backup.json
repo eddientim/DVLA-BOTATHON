@@ -1,0 +1,255 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "the dvla",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "OrderFlowers",
+                    "slots": [
+                        {
+                            "name": "destA",
+                            "type": "postcode",
+                            "samples": [
+                                "it is {destA}",
+                                "I will start at {destA}",
+                                "My starting location is {destA}"
+                            ]
+                        },
+                        {
+                            "name": "destB",
+                            "type": "postcode",
+                            "samples": [
+                                "I am travelling to {destB}",
+                                "it is {destB}",
+                                "I am going to {destB}",
+                                "I will end at {destB}",
+                                "my destination is {destB}"
+                            ]
+                        },
+                        {
+                            "name": "carReg",
+                            "type": "UKVehicleRegistration",
+                            "samples": [
+                                "it is {carReg}",
+                                "the number is {carReg}",
+                                "My license number is {carReg}",
+                                "my vehicle registration is {carReg}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "what is my carbon offset in trees",
+                        "how many trees will be used for my journey",
+                        "calculate my CO-two offset"
+                    ]
+                },
+                {
+                    "name": "testing",
+                    "slots": [
+                        {
+                            "name": "bannana",
+                            "type": "UKVehicleRegistration",
+                            "samples": [
+                                "my reg is {bannana}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "apples"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "postcode",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "BD183AW"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "CF831SD"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "SW47UY"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "UKVehicleRegistration",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "NG13 FUY"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "OrderFlowers",
+                    "delegationStrategy": "ALWAYS",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent-OrderFlowers"
+                    },
+                    "slots": [
+                        {
+                            "name": "destA",
+                            "type": "postcode",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Intent-OrderFlowers.IntentSlot-destA"
+                            }
+                        },
+                        {
+                            "name": "destB",
+                            "type": "postcode",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Intent-OrderFlowers.IntentSlot-destB"
+                            }
+                        },
+                        {
+                            "name": "carReg",
+                            "type": "UKVehicleRegistration",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Intent-OrderFlowers.IntentSlot-carReg"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "testing",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "bannana",
+                            "type": "UKVehicleRegistration",
+                            "confirmationRequired": true,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "confirmation": "Confirm.Slot.1119794729528.194723891606",
+                                "elicitation": "Elicit.Slot.1119794729528.194723891606"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Confirm.Intent-OrderFlowers",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Okay, I have your starting location as {destA}, your destination as {destB} and your car registration is {carReg}. Does this sound okay?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Intent-OrderFlowers.IntentSlot-carReg",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "What is the license number for your vehicle?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "What is your vehicle registration?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Intent-OrderFlowers.IntentSlot-destA",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Where are you starting?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Where will you begin your journey?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "What is your starting location?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Intent-OrderFlowers.IntentSlot-destB",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Where will you be travelling to?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "where are you going?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Where will you end your journey?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "What is you destination?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1119794729528.194723891606",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "whgat is your reg?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Slot.1119794729528.194723891606",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "I have {bannana} as your reg, is this correct?"
+                    }
+                ]
+            }
+        ]
+    }
+}
