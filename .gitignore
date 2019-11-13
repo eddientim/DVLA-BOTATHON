@@ -185,4 +185,5 @@ fabric.properties
 
 # OThers
 
-*.DS_Store
+.DS_Store
+./trees-calculator/.DS_Store
