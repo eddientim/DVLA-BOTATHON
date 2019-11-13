@@ -33,7 +33,7 @@ const HelloWorldIntentHandler = {
 
       return handlerInput.responseBuilder
                   .speak(data)
-                  .withSimpleCard('Hello World', "hello kamar I will work eventually don't worry")
+                  .withSimpleCard(data)
                   .getResponse();
     }
 };
