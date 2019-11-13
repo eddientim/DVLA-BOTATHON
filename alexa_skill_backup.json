@@ -1,7 +1,7 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "the dvla m. v. p.",
+            "invocationName": "the dvla",
             "intents": [
                 {
                     "name": "AMAZON.FallbackIntent",
@@ -24,7 +24,7 @@
                     "samples": []
                 },
                 {
-                    "name": "OrderFlowers",
+                    "name": "CheckTrees",
                     "slots": [
                         {
                             "name": "destA",
@@ -101,7 +101,7 @@
         "dialog": {
             "intents": [
                 {
-                    "name": "OrderFlowers",
+                    "name": "CheckTrees",
                     "delegationStrategy": "ALWAYS",
                     "confirmationRequired": false,
                     "prompts": {},
@@ -112,7 +112,7 @@
                             "confirmationRequired": false,
                             "elicitationRequired": true,
                             "prompts": {
-                                "elicitation": "Elicit.Intent-OrderFlowers.IntentSlot-destA"
+                                "elicitation": "Elicit.Intent-CheckTrees.IntentSlot-destA"
                             }
                         },
                         {
@@ -121,7 +121,7 @@
                             "confirmationRequired": false,
                             "elicitationRequired": true,
                             "prompts": {
-                                "elicitation": "Elicit.Intent-OrderFlowers.IntentSlot-destB"
+                                "elicitation": "Elicit.Intent-CheckTrees.IntentSlot-destB"
                             }
                         },
                         {
@@ -130,7 +130,7 @@
                             "confirmationRequired": false,
                             "elicitationRequired": true,
                             "prompts": {
-                                "elicitation": "Elicit.Intent-OrderFlowers.IntentSlot-carReg"
+                                "elicitation": "Elicit.Intent-CheckTrees.IntentSlot-carReg"
                             }
                         }
                     ]
@@ -140,7 +140,7 @@
         },
         "prompts": [
             {
-                "id": "Confirm.Intent-OrderFlowers",
+                "id": "Confirm.Intent-CheckTrees",
                 "variations": [
                     {
                         "type": "PlainText",
@@ -149,7 +149,7 @@
                 ]
             },
             {
-                "id": "Elicit.Intent-OrderFlowers.IntentSlot-carReg",
+                "id": "Elicit.Intent-CheckTrees.IntentSlot-carReg",
                 "variations": [
                     {
                         "type": "PlainText",
@@ -162,7 +162,7 @@
                 ]
             },
             {
-                "id": "Elicit.Intent-OrderFlowers.IntentSlot-destA",
+                "id": "Elicit.Intent-CheckTrees.IntentSlot-destA",
                 "variations": [
                     {
                         "type": "PlainText",
@@ -179,7 +179,7 @@
                 ]
             },
             {
-                "id": "Elicit.Intent-OrderFlowers.IntentSlot-destB",
+                "id": "Elicit.Intent-CheckTrees.IntentSlot-destB",
                 "variations": [
                     {
                         "type": "PlainText",
