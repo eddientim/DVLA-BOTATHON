@@ -1,0 +1,22 @@
+{
+	"variables": [],
+	"info": {
+		"name": "VES",
+		"_postman_id": "9f8a7a4d-81d9-cf16-c95a-30125cb796ba",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "VES",
+			"request": {
+				"url": "",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
