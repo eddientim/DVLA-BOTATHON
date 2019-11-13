@@ -185,4 +185,4 @@ fabric.properties
 
 # OThers
 
-.DS_Store
+*.DS_Store
