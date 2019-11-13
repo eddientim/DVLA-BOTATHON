@@ -29,11 +29,12 @@ const HelloWorldIntentHandler = {
 
 
       let data = await treeConsumptionCalculator.handler(destA, destB, carReg)
-      console.log("daaaattattataa, ", data)
+
+      let alexaResponseString = "Thank you. So " + data
 
       return handlerInput.responseBuilder
-                  .speak(data)
-                  .withSimpleCard(data)
+                  .speak(alexaResponseString)
+                  .withSimpleCard(alexaResponseString)
                   .getResponse();
     }
 };
