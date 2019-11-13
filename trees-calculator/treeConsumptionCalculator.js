@@ -37,5 +37,6 @@ async function calculatTreesdOffset(co2Emissions, distance) {
   let co2InGrams = co2Emissions * distanceInt[0]
   let co2InTonnes = co2InGrams / 1000000
 
-  return co2InTonnes * 5
+  let x = co2InTonnes * 5
+  return Math.round(x * 100)/100
 }
