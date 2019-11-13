@@ -1,6 +1,7 @@
 var googleDistanceService = require('./googleDistanceService.js');
 
 exports.handler =  async function(destA, destB, reg) {
+  console.log("WEE ARE HERE")
   // Getting variables from event
 
   // Getting CO2 information
@@ -38,5 +39,6 @@ async function calculatTreesdOffset(co2Emissions, distance) {
   let co2InTonnes = co2InGrams / 1000000
 
   let x = co2InTonnes * 5
+
   return Math.round(x * 100)/100
 }
