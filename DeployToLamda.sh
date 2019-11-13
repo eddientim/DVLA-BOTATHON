@@ -1,11 +1,11 @@
 #!/bin/bash
 
 
-cd /DVLA-BOTATHON/trees-calculator
+cd ./trees-calculator
 rm *.zip
 zip -r foo.zip .
 cd ..
 
-aws lambda update-function-code --function-name babs-backend --zip-file fileb://index.zip
+#aws lambda update-function-code --function-name babs-backend --zip-file fileb://foo.zip
 
 echo "Done"

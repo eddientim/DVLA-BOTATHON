@@ -1,4 +1,4 @@
-exports.handler =  async function(destA, destB, reg, callback) {
+exports.handler =  async function(destA, destB, reg) {
   // Getting variables from event
   // let destA = event.currentIntent.slots.destA
   // let destB = event.currentIntent.slots.destB
@@ -13,11 +13,15 @@ exports.handler =  async function(destA, destB, reg, callback) {
   // Calculating tree offset
   let treeOffset = await calculatTreesdOffset(co2Emissions, distanceKm)
 
-  let responseString = `This journey is ${distanceKm}km and would need to be offset by ${treeOffset} trees`
+  let responseString = "This journey is " + distanceKm + "km and would need to be offset by " + treeOffset + " trees"
 
-  console.log("Returning ", responseString)
+  console.log("KAMAR ", responseString)
 
-  callback(null, responseString)
+  //callback(null, responseString)
+
+  return new Promise(function(resolve, reject) {
+    resolve(responseString)
+  })
 }
 
 // TODO: Actually get vehicle info
